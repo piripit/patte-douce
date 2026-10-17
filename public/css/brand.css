@@ -1,0 +1,242 @@
+/* =========================================================
+   Identité commune (site public + espace admin)
+   Palette inspirée de la balade : ardoise d'Angers, brume de
+   Loire, laisse cobalt et balle de tennis.
+   ========================================================= */
+
+:root {
+    --ardoise: #1d2a36;
+    --brume: #edf1f2;
+    --pierre: #c9d3d8;
+    --muted: #546270;
+    --cobalt: #2347c5;
+    --cobalt-dark: #1a37a0;
+    --balle: #d6e34b;
+    --balle-dark: #c3d12f;
+
+    --ok-bg: #d9f0e2;   --ok: #145a32;
+    --warn-bg: #f7efb0; --warn: #5a4800;
+    --bad-bg: #fbe0dc;  --bad: #7d1f12;
+    --info-bg: #dce6fb; --info: #1d3a8a;
+    --mute-bg: #e1e7ea; --mute: #3d4a56;
+
+    --bs-body-font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --bs-body-color: var(--ardoise);
+    --bs-body-bg: var(--brume);
+    --bs-heading-color: var(--ardoise);
+    --bs-border-color: var(--pierre);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--bs-body-font-family);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--ardoise);
+    background: var(--brume);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ardoise);
+}
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.6rem); }
+h3 { font-size: 1.35rem; }
+
+a { color: var(--cobalt); }
+a:hover { color: var(--cobalt-dark); }
+
+.text-muted { color: var(--muted) !important; }
+
+:focus-visible {
+    outline: 3px solid var(--cobalt);
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    z-index: 2000;
+    padding: .75rem 1rem;
+    background: var(--ardoise);
+    color: #fff;
+}
+.skip-link:focus { left: 1rem; top: 1rem; color: #fff; }
+
+/* Champ piège anti-robots : invisible pour les humains */
+.hp {
+    position: absolute !important;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+    --bs-btn-border-radius: 999px;
+    --bs-btn-font-weight: 700;
+    --bs-btn-font-size: 1rem;
+    --bs-btn-padding-x: 1.35rem;
+    --bs-btn-padding-y: .65rem;
+    --bs-btn-border-width: 2px;
+}
+.btn-lg {
+    --bs-btn-font-size: 1.1rem;
+    --bs-btn-padding-x: 1.8rem;
+    --bs-btn-padding-y: .85rem;
+}
+.btn-sm {
+    --bs-btn-font-size: .9rem;
+    --bs-btn-padding-x: .95rem;
+    --bs-btn-padding-y: .4rem;
+}
+
+.btn-cobalt {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--cobalt);
+    --bs-btn-border-color: var(--cobalt);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--cobalt-dark);
+    --bs-btn-hover-border-color: var(--cobalt-dark);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--cobalt-dark);
+    --bs-btn-active-border-color: var(--cobalt-dark);
+    --bs-btn-focus-shadow-rgb: 35, 71, 197;
+}
+.btn-balle {
+    --bs-btn-color: var(--ardoise);
+    --bs-btn-bg: var(--balle);
+    --bs-btn-border-color: var(--balle);
+    --bs-btn-hover-color: var(--ardoise);
+    --bs-btn-hover-bg: var(--balle-dark);
+    --bs-btn-hover-border-color: var(--balle-dark);
+    --bs-btn-active-color: var(--ardoise);
+    --bs-btn-active-bg: var(--balle-dark);
+    --bs-btn-active-border-color: var(--balle-dark);
+    --bs-btn-focus-shadow-rgb: 214, 227, 75;
+}
+.btn-line {
+    --bs-btn-color: var(--ardoise);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: var(--ardoise);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--ardoise);
+    --bs-btn-hover-border-color: var(--ardoise);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--ardoise);
+    --bs-btn-active-border-color: var(--ardoise);
+    --bs-btn-focus-shadow-rgb: 29, 42, 54;
+}
+.btn-line-light {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: rgba(255, 255, 255, .55);
+    --bs-btn-hover-color: var(--ardoise);
+    --bs-btn-hover-bg: #fff;
+    --bs-btn-hover-border-color: #fff;
+    --bs-btn-active-color: var(--ardoise);
+    --bs-btn-active-bg: #fff;
+    --bs-btn-active-border-color: #fff;
+}
+.btn-line-danger {
+    --bs-btn-color: var(--bad);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: #d9a69f;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #b3261e;
+    --bs-btn-hover-border-color: #b3261e;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #b3261e;
+    --bs-btn-active-border-color: #b3261e;
+    --bs-btn-focus-shadow-rgb: 179, 38, 30;
+}
+.btn-ok {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #1c7a45;
+    --bs-btn-border-color: #1c7a45;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #145a32;
+    --bs-btn-hover-border-color: #145a32;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #145a32;
+    --bs-btn-active-border-color: #145a32;
+    --bs-btn-focus-shadow-rgb: 28, 122, 69;
+}
+
+/* ---------- Formulaires ---------- */
+.form-label { font-weight: 700; font-size: .95rem; margin-bottom: .35rem; }
+.form-control, .form-select {
+    border: 2px solid var(--pierre);
+    border-radius: 12px;
+    padding: .7rem .95rem;
+    background-color: #fff;
+    color: var(--ardoise);
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--cobalt);
+    box-shadow: 0 0 0 .25rem rgba(35, 71, 197, .18);
+    background-color: #fff;
+    color: var(--ardoise);
+}
+.form-control.is-invalid, .form-select.is-invalid { border-color: #b3261e; }
+.invalid-feedback { font-weight: 600; color: #b3261e; }
+
+/* ---------- Messages ---------- */
+.alert { border: 0; border-radius: 12px; font-weight: 600; }
+.alert-success { background: var(--ok-bg); color: var(--ok); }
+.alert-danger { background: var(--bad-bg); color: var(--bad); }
+
+/* ---------- Pastilles de statut ---------- */
+.pill {
+    display: inline-block;
+    padding: .2rem .7rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 700;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+.pill-warning { background: var(--warn-bg); color: var(--warn); }
+.pill-success { background: var(--ok-bg); color: var(--ok); }
+.pill-info { background: var(--info-bg); color: var(--info); }
+.pill-muted { background: var(--mute-bg); color: var(--mute); }
+.pill-danger { background: var(--bad-bg); color: var(--bad); }
+
+/* ---------- Médaille (logo) ---------- */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    color: var(--ardoise);
+}
+.brand:hover { color: var(--ardoise); }
+.brand-tag {
+    display: inline-grid;
+    place-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: var(--balle);
+    border: 2px solid var(--ardoise);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}

@@ -1,0 +1,218 @@
+/* =========================================================
+   Site public
+   ========================================================= */
+
+/* ---------- En-tête ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    background: rgba(237, 241, 242, .94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--pierre);
+}
+.site-header .navbar { padding-block: .7rem; }
+.site-header .nav-link {
+    font-weight: 600;
+    color: var(--ardoise);
+    padding-inline: .9rem;
+}
+.site-header .nav-link:hover { color: var(--cobalt); }
+.site-header .nav-link.active {
+    color: var(--cobalt);
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
+}
+.navbar-toggler { border: 2px solid var(--ardoise); border-radius: 10px; }
+.navbar-toggler:focus { box-shadow: 0 0 0 .25rem rgba(35, 71, 197, .2); }
+
+/* ---------- Accueil : l'accroche ---------- */
+.hero { padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem); }
+.hero h1 { max-width: 11ch; margin-bottom: 1.25rem; }
+.hero-lead { font-size: 1.25rem; color: var(--muted); max-width: 34rem; }
+.hero-points { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: .55rem; }
+.hero-points li { display: flex; gap: .7rem; font-weight: 600; }
+.hero-points li::before { content: "✓"; color: var(--cobalt); font-weight: 800; }
+
+.hero-art { display: flex; justify-content: center; padding-top: .5rem; }
+.hero-tag {
+    width: min(100%, 360px);
+    height: auto;
+    transform-origin: 50% 0;
+    transform: rotate(-4deg);
+    animation: swing 2.6s cubic-bezier(.3, .7, .3, 1) both;
+}
+@keyframes swing {
+    0%   { transform: rotate(11deg); }
+    35%  { transform: rotate(-8deg); }
+    65%  { transform: rotate(4deg); }
+    100% { transform: rotate(-4deg); }
+}
+
+/* ---------- Sections ---------- */
+.band { padding: clamp(3rem, 7vw, 5.5rem) 0; }
+.band-white { background: #fff; }
+.band-head { max-width: 40rem; margin-bottom: 2.5rem; }
+.band-head p { color: var(--muted); margin: .75rem 0 0; }
+
+/* ---------- Carte des tarifs ---------- */
+.menu { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--ardoise); }
+.menu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: .5rem 2rem;
+    align-items: start;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid var(--pierre);
+}
+.menu-name { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; margin: 0; }
+.menu-text { color: var(--muted); margin: .35rem 0 0; max-width: 52ch; }
+.menu-side { text-align: right; }
+.menu-price {
+    display: inline-block;
+    background: var(--balle);
+    color: var(--ardoise);
+    font-weight: 800;
+    font-size: 1.4rem;
+    line-height: 1.3;
+    padding: .15rem .85rem;
+    border-radius: 10px;
+}
+.menu-per { display: block; font-size: .9rem; color: var(--muted); margin-top: .3rem; }
+.menu-link { display: inline-block; margin-top: .5rem; font-weight: 700; }
+@media (max-width: 575.98px) {
+    .menu-item { grid-template-columns: 1fr; }
+    .menu-side { text-align: left; }
+}
+
+/* ---------- Déroulé en 3 étapes ---------- */
+.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2.25rem;
+    counter-reset: etape;
+}
+.steps li { counter-increment: etape; }
+.steps li::before {
+    content: counter(etape);
+    display: block;
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--cobalt);
+    margin-bottom: .6rem;
+}
+.steps h3 { margin-bottom: .4rem; }
+.steps p { color: var(--muted); margin: 0; max-width: 32ch; }
+@media (min-width: 768px) {
+    .steps { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+}
+
+/* ---------- Bandeau d'appel à réserver ---------- */
+.cta { background: var(--cobalt); color: #fff; padding: clamp(2.5rem, 6vw, 4rem) 0; }
+.cta h2 { color: #fff; max-width: 18ch; margin: 0; }
+.cta p { color: rgba(255, 255, 255, .88); margin: .75rem 0 0; max-width: 46ch; }
+
+/* ---------- Pages intérieures ---------- */
+.page-head { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.5rem, 3vw, 2.5rem); }
+.page-head h1 { font-size: clamp(2.3rem, 5vw, 3.6rem); margin-bottom: .75rem; }
+.page-head p { font-size: 1.2rem; color: var(--muted); max-width: 40rem; margin: 0; }
+
+.panel { background: #fff; border-radius: 20px; padding: clamp(1.25rem, 3vw, 2.25rem); }
+.panel-note { border-left: 6px solid var(--balle); padding: .15rem 0 .15rem 1.25rem; }
+.panel-note h2 { font-size: 1.35rem; margin-bottom: .5rem; }
+.panel-note ol { padding-left: 1.2rem; margin: 0; color: var(--muted); }
+.panel-note li + li { margin-top: .5rem; }
+
+.thanks { text-align: center; padding-block: clamp(2rem, 6vw, 4rem); }
+.thanks-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: var(--balle);
+    border: 3px solid var(--ardoise);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+.thanks p { max-width: 38rem; margin: .75rem auto 1.5rem; color: var(--muted); }
+
+/* ---------- Contact ---------- */
+.contact-list { list-style: none; margin: 0; padding: 0; border-top: 3px solid var(--ardoise); }
+.contact-list li {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: .25rem 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--pierre);
+    align-items: baseline;
+}
+.contact-label { font-weight: 700; color: var(--muted); }
+.contact-value { font-size: 1.4rem; font-weight: 700; }
+.contact-value a { color: var(--ardoise); }
+.contact-value a:hover { color: var(--cobalt); }
+@media (max-width: 575.98px) {
+    .contact-list li { grid-template-columns: 1fr; }
+}
+
+/* ---------- Questions fréquentes ---------- */
+.faq details { background: #fff; border-radius: 14px; padding: 1rem 1.25rem; margin-bottom: .75rem; }
+.faq summary { cursor: pointer; font-weight: 700; list-style: none; padding-right: 2rem; position: relative; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 0; top: -.15rem; font-size: 1.6rem; color: var(--cobalt); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin: .75rem 0 0; color: var(--muted); max-width: 62ch; }
+
+/* ---------- Mentions légales ---------- */
+.legal { max-width: 68ch; }
+.legal h2 { font-size: 1.4rem; margin: 2.25rem 0 .6rem; }
+.legal p, .legal li { color: var(--ardoise); }
+
+/* ---------- Pages d'erreur ---------- */
+.error-page { padding: clamp(3rem, 9vw, 6rem) 0; }
+.error-code {
+    font-size: clamp(5rem, 18vw, 10rem);
+    font-weight: 800;
+    line-height: .9;
+    color: var(--balle);
+    -webkit-text-stroke: 3px var(--ardoise);
+}
+
+/* ---------- Pied de page ---------- */
+.site-footer { background: var(--ardoise); color: rgba(255, 255, 255, .78); padding: 3.5rem 0 1.5rem; }
+.site-footer .brand { color: #fff; }
+.site-footer a { color: rgba(255, 255, 255, .88); text-decoration: none; }
+.site-footer a:hover { color: #fff; text-decoration: underline; }
+.footer-title { font-size: 1rem; font-weight: 800; color: #fff; margin-bottom: .75rem; letter-spacing: 0; }
+.footer-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .16);
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    font-size: .9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    justify-content: space-between;
+}
+
+/* ---------- Réservation : séjours de plusieurs jours ---------- */
+.duration { font-weight: 700; color: var(--cobalt); min-height: 1.5rem; margin: 0 0 .75rem; }
+.stay-ranges { list-style: none; margin: .6rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.range-pick {
+    border: 2px solid var(--pierre);
+    background: #fff;
+    border-radius: 999px;
+    padding: .3rem .95rem;
+    font-weight: 600;
+    font-size: .92rem;
+    color: var(--ardoise);
+    cursor: pointer;
+}
+.range-pick:hover { border-color: var(--cobalt); color: var(--cobalt); }
